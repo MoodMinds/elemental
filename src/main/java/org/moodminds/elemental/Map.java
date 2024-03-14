@@ -439,9 +439,22 @@ public interface Map<K, V> extends Association<K, V, Map.Entry<K, V>>, java.util
     Set<K> keySet();
 
     /**
-     * {@inheritDoc}
+     * Return a {@link Collection} view of the values contained in this map.
+     * <p>
+     * Note: This method returns {@link Collection} solely due to the interface
+     * extending {@link java.util.Map} itself. If you intend to perform such
+     * a hacky O(n) complexity action as:
+     * <pre>{@code
+     *     map.values().remove(value);
+     * }</pre>,
+     * or, perish the thought,
+     * <pre>{@code
+     *     while (map.values().remove(value));
+     * }</pre>
+     * - consider using the {@link #removeIf(BiPredicate)}, {@link #removeIfValue(Predicate)}
+     * or {@link #retainIf(BiPredicate)}, {@link #retainIfValue(Predicate)} methods instead.
      *
-     * @return {@inheritDoc}
+     * @return a {@link Collection} view of the values contained in this map
      */
     @Override
     Collection<V> values();
