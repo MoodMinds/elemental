@@ -41,6 +41,7 @@ public interface Ended<E> extends Container<E> {
      *
      * @return an iterator for the elements in proper order (from the head)
      */
+    @Override
     Iterator<E> iterator();
 
     /**
