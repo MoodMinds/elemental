@@ -141,6 +141,7 @@ public interface Association<K, V, KV extends KeyValue<K, V>> extends Container<
      *
      * @return a {@code Spliterator} over the key-value pairs described by this Association
      */
+    @Override
     default Spliterator<KV> spliterator() {
         return java.util.Spliterators.spliterator(iterator(), size(), IMMUTABLE | DISTINCT);
     }

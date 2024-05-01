@@ -480,6 +480,7 @@ public interface Map<K, V> extends Association<K, V, Map.Entry<K, V>>, java.util
      *
      * @return {@inheritDoc}
      */
+    @Override
     default Spliterator<Map.Entry<K, V>> spliterator() {
         return java.util.Spliterators.spliterator(iterator(), size(), DISTINCT);
     }

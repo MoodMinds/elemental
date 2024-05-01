@@ -47,13 +47,13 @@ public interface Container<V> extends Iterable<V> {
 
             V next; boolean hasNext = false;
 
-            public boolean hasNext() {
+            @Override public boolean hasNext() {
                 return hasNext || setNext(); }
-            public V next() {
+            @Override public V next() {
                 if (!hasNext && !setNext())
                     throw new NoSuchElementException();
                 hasNext = false; return next; }
-            public void remove() {
+            @Override public void remove() {
                 if (hasNext)
                     throw new IllegalStateException();
                 iterator.remove(); }
@@ -101,6 +101,7 @@ public interface Container<V> extends Iterable<V> {
      *
      * @return an {@link Iterator} over the elements in this Container
      */
+    @Override
     Iterator<V> iterator();
 
     /**
@@ -260,6 +261,7 @@ public interface Container<V> extends Iterable<V> {
      *
      * @return a {@code Spliterator} over the elements described by this Container
      */
+    @Override
     default Spliterator<V> spliterator() {
         return java.util.Spliterators.spliterator(iterator(), size(), IMMUTABLE);
     }
