@@ -19,5 +19,20 @@ public interface Producer<V> {
      * @param consumer the specified {@link Consumer} of value(s)
      */
     void provide(Consumer<? super V> consumer);
+
+
+    /**
+     * Return sequential single-threaded Producer of the given values.
+     *
+     * @param values the given values
+     * @return sequential single-threaded Producer of the given values
+     * @param <V> the type of values
+     */
+    @SafeVarargs
+    static <V> Producer<V> producer(V... values) {
+        return consumer -> {
+            for (V value : values) consumer.accept(value);
+        };
+    }
 }
 
