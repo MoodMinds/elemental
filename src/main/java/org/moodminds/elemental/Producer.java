@@ -22,6 +22,16 @@ public interface Producer<V> {
 
 
     /**
+     * Return idle Producer.
+     *
+     * @return idle Producer
+     * @param <V> the type of values
+     */
+    static <V> Producer<V> producer() {
+        return consumer -> {};
+    }
+
+    /**
      * Return sequential single-threaded Producer of the given values.
      *
      * @param values the given values
