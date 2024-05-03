@@ -34,6 +34,35 @@ public interface Advancer<V> {
         while (true) if (!next(consumer)) return;
     }
 
+    /**
+     * Return an idle Advancer.
+     *
+     * @return an idle Advancer
+     * @param <V> the type of values
+     */
+    static <V> Advancer<V> advancer() {
+        return consumer -> false;
+    }
+
+    /**
+     * Return an Advancer of the given values.
+     *
+     * @param values the given values
+     * @return an Advancer of the given values.
+     * @param <V> the type of values
+     */
+    @SafeVarargs
+    static <V> Advancer<V> advancer(V... values) {
+        return new Advancer<V>() {
+
+            private int index = 0;
+
+            @Override public boolean next(Consumer<? super V> consumer) {
+                if (index < values.length) {
+                    consumer.accept(values[index++]); return true;
+                } return false; }
+        };
+    }
 
     /**
      * Return an Advancer backed by the specified {@link Iterator}.
