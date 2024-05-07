@@ -45,27 +45,23 @@ public interface Container<V> extends Iterable<V> {
 
         return new Iterator<V>() {
 
-            V next; boolean hasNext = false;
+            V next; boolean test = false;
 
             @Override public boolean hasNext() {
-                return hasNext || setNext(); }
+                if (!test) {
+                    while (iterator.hasNext())
+                        if (predicate.test(next = iterator.next()))
+                            return test = true;
+                    return false;
+                } return true; }
             @Override public V next() {
-                if (!hasNext && !setNext())
+                if (!hasNext())
                     throw new NoSuchElementException();
-                hasNext = false; return next; }
+                test = false; return next; }
             @Override public void remove() {
-                if (hasNext)
+                if (test)
                     throw new IllegalStateException();
                 iterator.remove(); }
-
-            private boolean setNext() {
-                while (iterator.hasNext()) {
-                    final V next = iterator.next();
-                    if (predicate.test(next)) {
-                        this.next = next; hasNext = true; return true;
-                    }
-                } return false;
-            }
         };
     }
 
