@@ -357,7 +357,7 @@ public interface Map<K, V> extends Association<K, V, Map.Entry<K, V>>, java.util
      *
      * @implSpec
      * The default implementation iterates over the entries of the Map using its {@link #iterator}.
-     * When an entry satisfies the predicate, it is removed using {@link Iterator#remove()}.
+     * When an entry's value satisfies the predicate, it is removed using {@link Iterator#remove()}.
      *
      * @param filter the predicate used to determine which entry to remove
      * @return {@code true} if any entry was removed
@@ -396,7 +396,7 @@ public interface Map<K, V> extends Association<K, V, Map.Entry<K, V>>, java.util
      *
      * @implSpec
      * The default implementation iterates over all entries of the Map using its {@link #iterator}.
-     * Each entry that does not satisfy the predicate is removed using {@link Iterator#remove()}.
+     * Each entry, which value does not satisfy the predicate, is removed using {@link Iterator#remove()}.
      *
      * @param filter the predicate used to determine which entry to retain
      * @return {@code true} if any entries were removed
