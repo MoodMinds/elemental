@@ -55,11 +55,11 @@ public interface Advancer<V> {
     static <V> Advancer<V> advancer(V... values) {
         return new Advancer<V>() {
 
-            private int index = 0;
+            private int index = values.length;
 
             @Override public boolean next(Consumer<? super V> consumer) {
-                if (index < values.length) {
-                    consumer.accept(values[index++]); return true;
+                if (index > 0) {
+                    consumer.accept(values[--index]); return true;
                 } return false; }
         };
     }
