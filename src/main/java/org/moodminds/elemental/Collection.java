@@ -148,7 +148,7 @@ public interface Collection<V> extends Container<V>, java.util.Collection<V> {
      * this collection will have no elements in common with the specified elements.
      *
      * @param elements the {@link Iterable} of elements to be deleted from this collection
-     * @return {@code true} if this collection underwent changes as a result of the call
+     * @return {@code true} if this collection had changes as a result of the call
      * @throws UnsupportedOperationException if this collection does not support
      *         the {@code removeAll} operation
      * @throws ClassCastException if the types of one or more elements
@@ -173,7 +173,7 @@ public interface Collection<V> extends Container<V>, java.util.Collection<V> {
      * this collection will have no elements in common with the specified elements.
      *
      * @param c the {@link Container} containing elements to be deleted from this collection
-     * @return {@code true} if this collection underwent changes as a result of the call
+     * @return {@code true} if this collection had changes as a result of the call
      * @throws UnsupportedOperationException if this collection does not support
      *         the {@code removeAll} operation
      * @throws ClassCastException if the types of one or more elements
@@ -193,7 +193,7 @@ public interface Collection<V> extends Container<V>, java.util.Collection<V> {
      * this collection will have no elements in common with the specified collection.
      *
      * @param c the {@link java.util.Collection} containing elements to be deleted from this collection
-     * @return {@code true} if this collection underwent changes as a result of the call
+     * @return {@code true} if this collection had changes as a result of the call
      * @throws UnsupportedOperationException if this collection does not support
      *         the {@code removeAll} operation
      * @throws ClassCastException if the types of one or more elements
@@ -214,7 +214,7 @@ public interface Collection<V> extends Container<V>, java.util.Collection<V> {
      * this collection will have no elements in common with the specified collection.
      *
      * @param c the {@link Collection} containing elements to be deleted from this collection
-     * @return {@code true} if this collection underwent changes as a result of the call
+     * @return {@code true} if this collection had changes as a result of the call
      * @throws UnsupportedOperationException if this collection does not support
      *         the {@code removeAll} operation
      * @throws ClassCastException if the types of one or more elements
@@ -234,7 +234,7 @@ public interface Collection<V> extends Container<V>, java.util.Collection<V> {
      * this collection all elements that are not present in the specified {@link Container}.
      *
      * @param c the {@link Container} containing elements to be kept in this collection
-     * @return {@code true} if this collection underwent changes as a result of the call
+     * @return {@code true} if this collection had changes as a result of the call
      * @throws UnsupportedOperationException if this collection does not support
      *         the {@code retainAll} operation
      * @throws ClassCastException if the types of one or more elements
@@ -254,7 +254,7 @@ public interface Collection<V> extends Container<V>, java.util.Collection<V> {
      * this collection all elements that are not present in the specified {@link java.util.Collection}.
      *
      * @param c the {@link java.util.Collection} containing elements to be kept in this collection
-     * @return {@code true} if this collection underwent changes as a result of the call
+     * @return {@code true} if this collection had changes as a result of the call
      * @throws UnsupportedOperationException if this collection does not support
      *         the {@code retainAll} operation
      * @throws ClassCastException if the types of one or more elements
@@ -275,7 +275,7 @@ public interface Collection<V> extends Container<V>, java.util.Collection<V> {
      * this collection all elements that are not present in the specified {@link Collection}.
      *
      * @param c the {@link Collection} containing elements to be kept in this collection
-     * @return {@code true} if this collection underwent changes as a result of the call
+     * @return {@code true} if this collection had changes as a result of the call
      * @throws UnsupportedOperationException if this collection does not support
      *         the {@code retainAll} operation
      * @throws ClassCastException if the types of one or more elements
