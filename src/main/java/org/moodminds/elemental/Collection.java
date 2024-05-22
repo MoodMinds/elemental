@@ -136,10 +136,10 @@ public interface Collection<V> extends Container<V>, java.util.Collection<V> {
      */
     @Override
     default boolean remove(Object o) {
-        Iterator<V> iterator = getAll(o);
-        if (!iterator.hasNext())
+        Iterator<V> it = getAll(o);
+        if (!it.hasNext())
             return false;
-        iterator.next(); iterator.remove(); return true;
+        it.next(); it.remove(); return true;
     }
 
     /**
@@ -161,8 +161,8 @@ public interface Collection<V> extends Container<V>, java.util.Collection<V> {
     default boolean removeAll(Iterable<?> elements) {
         boolean modified = false;
         for (Object element : elements)
-            for (Iterator<V> all = getAll(element); all.hasNext(); ) {
-                all.next(); all.remove(); modified = true;
+            for (Iterator<V> it = getAll(element); it.hasNext(); ) {
+                it.next(); it.remove(); modified = true;
             }
         return modified;
     }
