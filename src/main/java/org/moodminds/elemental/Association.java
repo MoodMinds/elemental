@@ -21,6 +21,30 @@ import static java.util.Spliterator.IMMUTABLE;
 public interface Association<K, V, KV extends KeyValue<? extends K, ? extends V>> extends Container<KV> {
 
     /**
+     * Retrieve single key-value pair number that matches the given example.
+     *
+     * @param o the example key-value pair to compare
+     * @return single key-value pair number that matches the given example
+     * @throws ClassCastException if the specified object is not a compatible {@link KV} type
+     * for this Association, or if its key or value has an incompatible type
+     * @throws NullPointerException if the provided key-value example is {@code null} or has {@code null} key (optional)
+     */
+    @Override
+    int getCount(Object o);
+
+    /**
+     * Retrieve an {@link Iterator} of a single key-value pair that matches the given example.
+     *
+     * @param o the example key-value pair to compare
+     * @return an {@link Iterator} of a single key-value pair that matches the specified example
+     * @throws ClassCastException if the specified object is not a compatible {@link KV} type
+     * for this Association, or if its key or value has an incompatible type
+     * @throws NullPointerException if the provided key-value example is {@code null} or has {@code null} key (optional)
+     */
+    @Override
+    Iterator<KV> getAll(Object o);
+
+    /**
      * Return the value to which the specified key is associated. If the specified key
      * is not associated with any value in this Association - {@code null} can be returned
      * or {@link NoSuchElementException} may be thrown. A {@code null} return can also
@@ -36,30 +60,6 @@ public interface Association<K, V, KV extends KeyValue<? extends K, ? extends V>
      * @param <R> the type of return value
      */
     <R extends V> R get(Object key);
-
-    /**
-     * Retrieve an {@link Iterator} of a single key-value pair that matches the given example.
-     *
-     * @param o the example key-value pair to compare
-     * @return an {@link Iterator} of a single key-value pair that matches the specified example
-     * @throws ClassCastException if the specified object is not a compatible {@link KV} type
-     * for this Association, or if its key or value has an incompatible type
-     * @throws NullPointerException if the provided key-value example is {@code null} or has {@code null} key (optional)
-     */
-    @Override
-    Iterator<KV> getAll(Object o);
-
-    /**
-     * Retrieve single key-value pair number that matches the given example.
-     *
-     * @param o the example key-value pair to compare
-     * @return single key-value pair number that matches the given example
-     * @throws ClassCastException if the specified object is not a compatible {@link KV} type
-     * for this Association, or if its key or value has an incompatible type
-     * @throws NullPointerException if the provided key-value example is {@code null} or has {@code null} key (optional)
-     */
-    @Override
-    int getCount(Object o);
 
     /**
      * Retrieve the value associated with the specified key, or return the default value if none is found.

@@ -25,18 +25,6 @@ import static java.util.Spliterator.IMMUTABLE;
 public interface Container<V> extends Iterable<V> {
 
     /**
-     * Retrieve objects that match the provided example.
-     *
-     * @param o the reference object for comparison
-     * @return an {@link Iterator} of objects that match the provided example
-     * @throws ClassCastException if the type of the example is not compatible
-     *         with this Container (optional)
-     * @throws NullPointerException if the example is {@code null} or contains internal {@code null} values,
-     *         and this Container does not allow that (optional)
-     */
-    Iterator<V> getAll(Object o);
-
-    /**
      * Retrieve objects' count that match the provided example.
      *
      * @param o the reference object for comparison
@@ -51,21 +39,24 @@ public interface Container<V> extends Iterable<V> {
     int getCount(Object o);
 
     /**
+     * Retrieve objects that match the provided example.
+     *
+     * @param o the reference object for comparison
+     * @return an {@link Iterator} of objects that match the provided example
+     * @throws ClassCastException if the type of the example is not compatible
+     *         with this Container (optional)
+     * @throws NullPointerException if the example is {@code null} or contains internal {@code null} values,
+     *         and this Container does not allow that (optional)
+     */
+    Iterator<V> getAll(Object o);
+
+    /**
      * Return the number of elements in this Container. If this Container contains
      * more than {@link Integer#MAX_VALUE} elements, return {@link Integer#MAX_VALUE}.
      *
      * @return the number of elements in this Container
      */
     int size();
-
-    /**
-     * Return an {@link Iterator} over the elements in this Container. There are no
-     * guarantees concerning the order in which the elements are returned.
-     *
-     * @return an {@link Iterator} over the elements in this Container
-     */
-    @Override
-    Iterator<V> iterator();
 
     /**
      * Return a hash code value for this Container. While this interface does not impose any specific
@@ -212,6 +203,15 @@ public interface Container<V> extends Iterable<V> {
     default boolean containsAll(Collection<?> c) {
         return containsAll((java.util.Collection<?>) c);
     }
+
+    /**
+     * Return an {@link Iterator} over the elements in this Container. There are no
+     * guarantees concerning the order in which the elements are returned.
+     *
+     * @return an {@link Iterator} over the elements in this Container
+     */
+    @Override
+    Iterator<V> iterator();
 
     /**
      * Return a {@link Spliterator} over the elements described by this Container.
