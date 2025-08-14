@@ -219,7 +219,7 @@ public interface Container<V> extends Iterable<V> {
      * @implSpec
      * The default implementation creates an
      * <em><a href="../util/Spliterator.html#binding">early-binding</a></em>
-     * spliterator from the iterable's {@code Iterator}.  The spliterator
+     * spliterator from the iterable's {@code Iterator}. The spliterator
      * inherits the <em>fail-fast</em> properties of the Container's iterator.
      *
      * @return a {@code Spliterator} over the elements described by this Container
