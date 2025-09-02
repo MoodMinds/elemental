@@ -1,6 +1,7 @@
 package org.moodminds.elemental;
 
 import java.util.Iterator;
+import java.util.Spliterator;
 import java.util.function.Consumer;
 
 /**
@@ -72,9 +73,27 @@ public interface Advancer<V> {
      * @param <V> the type of values
      */
     static <V> Advancer<V> advancer(Iterator<? extends V> iterator) {
-        return consumer -> {
-            if (!iterator.hasNext()) return false;
-            consumer.accept(iterator.next()); return true;
+        return new Advancer<V>() {
+            @Override public boolean next(Consumer<? super V> consumer) {
+                if (!iterator.hasNext()) return false; consumer.accept(iterator.next()); return true; }
+            @Override public void each(Consumer<? super V> consumer) {
+                iterator.forEachRemaining(consumer); }
+        };
+    }
+
+    /**
+     * Return an Advancer backed by the specified {@link Spliterator}.
+     *
+     * @param spliterator the specified {@link Spliterator}
+     * @return an Advancer backed by the specified {@link Spliterator}
+     * @param <V> the type of values
+     */
+    static <V> Advancer<V> advancer(Spliterator<? extends V> spliterator) {
+        return new Advancer<V>() {
+            @Override public boolean next(Consumer<? super V> consumer) {
+                return spliterator.tryAdvance(consumer); }
+            @Override public void each(Consumer<? super V> consumer) {
+                spliterator.forEachRemaining(consumer); }
         };
     }
 }
