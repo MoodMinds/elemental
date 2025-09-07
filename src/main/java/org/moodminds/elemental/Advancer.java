@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.Spliterator;
 import java.util.function.Consumer;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * An object for traversing values of a Source.
  *
@@ -42,7 +44,9 @@ public interface Advancer<V> {
      * @param <V> the type of values
      */
     static <V> Advancer<V> advancer() {
-        return consumer -> false;
+        return consumer -> {
+            requireNonNull(consumer); return false;
+        };
     }
 
     /**
@@ -59,6 +63,7 @@ public interface Advancer<V> {
             private int index = 0;
 
             @Override public boolean next(Consumer<? super V> consumer) {
+                requireNonNull(consumer);
                 if (index < values.length) {
                     consumer.accept(values[index++]); return true;
                 } return false; }
@@ -75,7 +80,7 @@ public interface Advancer<V> {
     static <V> Advancer<V> advancer(Iterator<? extends V> iterator) {
         return new Advancer<V>() {
             @Override public boolean next(Consumer<? super V> consumer) {
-                if (!iterator.hasNext()) return false; consumer.accept(iterator.next()); return true; }
+                requireNonNull(consumer); if (!iterator.hasNext()) return false; consumer.accept(iterator.next()); return true; }
             @Override public void each(Consumer<? super V> consumer) {
                 iterator.forEachRemaining(consumer); }
         };
