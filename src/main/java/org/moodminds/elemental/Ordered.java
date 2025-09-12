@@ -29,6 +29,7 @@ public interface Ordered<V> {
      *                expected subtype of {@code V}
      * @return the first value
      * @throws IndexOutOfBoundsException if no value exists at index {@code 0}
+     * @throws RuntimeException in case of any error while accessing the value
      */
     static <V, R extends V> R get1st(Ordered<V> ordered) {
         return ordered.get(0);
@@ -42,6 +43,7 @@ public interface Ordered<V> {
      * @param <R>     the precise return type
      * @return the second value
      * @throws IndexOutOfBoundsException if no value exists at index {@code 1}
+     * @throws RuntimeException in case of any error while accessing the value
      */
     static <V, R extends V> R get2nd(Ordered<V> ordered) {
         return ordered.get(1);
@@ -55,6 +57,7 @@ public interface Ordered<V> {
      * @param <R>     the precise return type
      * @return the third value
      * @throws IndexOutOfBoundsException if no value exists at index {@code 2}
+     * @throws RuntimeException in case of any error while accessing the value
      */
     static <V, R extends V> R get3rd(Ordered<V> ordered) {
         return ordered.get(2);
@@ -68,6 +71,7 @@ public interface Ordered<V> {
      * @param <R>     the precise return type
      * @return the fourth value
      * @throws IndexOutOfBoundsException if no value exists at index {@code 3}
+     * @throws RuntimeException in case of any error while accessing the value
      */
     static <V, R extends V> R get4th(Ordered<V> ordered) {
         return ordered.get(3);
@@ -81,6 +85,7 @@ public interface Ordered<V> {
      * @param <R>     the precise return type
      * @return the fifth value
      * @throws IndexOutOfBoundsException if no value exists at index {@code 4}
+     * @throws RuntimeException in case of any error while accessing the value
      */
     static <V, R extends V> R get5th(Ordered<V> ordered) {
         return ordered.get(4);
@@ -94,6 +99,7 @@ public interface Ordered<V> {
      * @param <R>     the precise return type
      * @return the sixth value
      * @throws IndexOutOfBoundsException if no value exists at index {@code 5}
+     * @throws RuntimeException in case of any error while accessing the value
      */
     static <V, R extends V> R get6th(Ordered<V> ordered) {
         return ordered.get(5);
@@ -107,6 +113,7 @@ public interface Ordered<V> {
      * @param <R>     the precise return type
      * @return the seventh value
      * @throws IndexOutOfBoundsException if no value exists at index {@code 6}
+     * @throws RuntimeException in case of any error while accessing the value
      */
     static <V, R extends V> R get7th(Ordered<V> ordered) {
         return ordered.get(6);
@@ -120,6 +127,7 @@ public interface Ordered<V> {
      * @param <R>     the precise return type
      * @return the eighth value
      * @throws IndexOutOfBoundsException if no value exists at index {@code 7}
+     * @throws RuntimeException in case of any error while accessing the value
      */
     static <V, R extends V> R get8th(Ordered<V> ordered) {
         return ordered.get(7);
