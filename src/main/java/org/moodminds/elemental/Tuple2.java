@@ -15,7 +15,7 @@ public interface Tuple2<V1, V2> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V1 get1st() {
-        return get(0);
+        return Ordered.get1st(this);
     }
 
     /**
@@ -25,7 +25,7 @@ public interface Tuple2<V1, V2> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V2 get2nd() {
-        return get(1);
+        return Ordered.get2nd(this);
     }
 
     /**

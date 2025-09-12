@@ -17,7 +17,7 @@ public interface Tuple4<V1, V2, V3, V4> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V1 get1st() {
-        return get(0);
+        return Ordered.get1st(this);
     }
 
     /**
@@ -27,7 +27,7 @@ public interface Tuple4<V1, V2, V3, V4> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V2 get2nd() {
-        return get(1);
+        return Ordered.get2nd(this);
     }
 
     /**
@@ -37,7 +37,7 @@ public interface Tuple4<V1, V2, V3, V4> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V3 get3rd() {
-        return get(2);
+        return Ordered.get3rd(this);
     }
 
     /**
@@ -47,7 +47,7 @@ public interface Tuple4<V1, V2, V3, V4> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V4 get4th() {
-        return get(3);
+        return Ordered.get4th(this);
     }
 
     /**

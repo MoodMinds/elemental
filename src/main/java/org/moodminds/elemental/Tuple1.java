@@ -14,7 +14,7 @@ public interface Tuple1<V> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V get1st() {
-        return get(0);
+        return Ordered.get1st(this);
     }
 
     /**

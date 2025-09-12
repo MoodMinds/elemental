@@ -20,7 +20,7 @@ public interface Tuple7<V1, V2, V3, V4, V5, V6, V7> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V1 get1st() {
-        return get(0);
+        return Ordered.get1st(this);
     }
 
     /**
@@ -30,7 +30,7 @@ public interface Tuple7<V1, V2, V3, V4, V5, V6, V7> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V2 get2nd() {
-        return get(1);
+        return Ordered.get2nd(this);
     }
 
     /**
@@ -40,7 +40,7 @@ public interface Tuple7<V1, V2, V3, V4, V5, V6, V7> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V3 get3rd() {
-        return get(2);
+        return Ordered.get3rd(this);
     }
 
     /**
@@ -50,7 +50,7 @@ public interface Tuple7<V1, V2, V3, V4, V5, V6, V7> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V4 get4th() {
-        return get(3);
+        return Ordered.get4th(this);
     }
 
     /**
@@ -60,7 +60,7 @@ public interface Tuple7<V1, V2, V3, V4, V5, V6, V7> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V5 get5th() {
-        return get(4);
+        return Ordered.get5th(this);
     }
 
     /**
@@ -70,7 +70,7 @@ public interface Tuple7<V1, V2, V3, V4, V5, V6, V7> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V6 get6th() {
-        return get(5);
+        return Ordered.get6th(this);
     }
 
     /**
@@ -80,7 +80,7 @@ public interface Tuple7<V1, V2, V3, V4, V5, V6, V7> extends Tuple {
      * @throws RuntimeException in case of any error while accessing the value
      */
     default V7 get7th() {
-        return get(6);
+        return Ordered.get7th(this);
     }
 
     /**
